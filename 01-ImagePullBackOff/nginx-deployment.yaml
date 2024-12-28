@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deployment
+spec:
+  selector:
+    matchLabels:
+      app: nginx
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+      - name: nginx
+        image: aqeeladil/nginx-image-demo:v1    # Ensure the tag is valid
+        ports:  
+        - containerPort: 80
+      imagePullSecrets:
+      - name: my-registry-secret     # Edit the secret name here
+
+
+ 

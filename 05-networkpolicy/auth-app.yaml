@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: app-pod
+  namespace: secure
+  labels:
+    role: redis-member
+spec:
+  containers:
+    - name: app
+      image: alpine
+      command: ["sleep", "3600"]
